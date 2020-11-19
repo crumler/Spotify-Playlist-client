@@ -1,12 +1,34 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Grid, TextField, Button, InputAdornment } from '@material-ui/core';
 import { AccountCircle, LockRounded } from '@material-ui/icons';
 
-const Register = () => {
+// const Register = () => {
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    // const [username, setUsername] = useState('');
+    // const [password, setPassword] = useState('');
 
+class Register extends React.Component<{}, {username: string, password: string}> {
+    constructor(props: any) {
+        super(props)
+        this.state = {
+            username: '',
+            password: ''
+        }
+    }
+
+    // handleUsernameChange = () => {
+    //     this.setState({
+    //         username: this.state.username
+    //     })
+    // };
+
+    // handlePasswordChange = () => {
+    //     this.setState({
+    //         password: this.state.password
+    //     })
+    // };
+
+    render() {
     return(
         <div>
             <h1>Please create a new account below:</h1>
@@ -14,16 +36,16 @@ const Register = () => {
                 <Grid item>
                     <TextField label='username'
                         margin="normal"
-                        value={username}
+                        value={this.state.username}
                         InputProps={{ startAdornment: <InputAdornment position='start'><AccountCircle /></InputAdornment>}}
-                        style={{color: 'white', backgroundColor: 'white', borderRadius: '10px' }}
+                        id='textField'
                     />
                     <TextField label="Password"
                         type='password'
                         margin="normal"
-                        value={password}
+                        value={this.state.password}
                         InputProps={{ startAdornment: <InputAdornment position='start'><LockRounded /></InputAdornment>}}
-                        style={{color: 'white', backgroundColor: 'white', borderRadius: '10px' }}
+                        id='textField'
                         />
                         <br />
                         <Button color='primary' variant='contained'>Create New Account</Button>
@@ -32,6 +54,6 @@ const Register = () => {
         </div>
         
     )
-};
+}};
 
 export default Register;
